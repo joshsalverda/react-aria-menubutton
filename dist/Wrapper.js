@@ -16,7 +16,7 @@ var specialAssign = require('./specialAssign');
 var checkedProps = {
   children: PropTypes.node.isRequired,
   onMenuToggle: PropTypes.func,
-  onSelection: PropTypes.func.isRequired,
+  onSelection: PropTypes.func,
   closeOnSelection: PropTypes.bool,
   tag: PropTypes.string
 };
