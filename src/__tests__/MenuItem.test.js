@@ -52,7 +52,8 @@ describe('<MenuItem>', function() {
     expect(ambManager.handleSelection).toHaveBeenCalledTimes(1);
     expect(ambManager.handleSelection.mock.calls[0]).toEqual([
       'foo',
-      mockEvent
+      mockEvent,
+      undefined
     ]);
   });
 
@@ -64,7 +65,8 @@ describe('<MenuItem>', function() {
     expect(ambManager.handleSelection).toHaveBeenCalledTimes(1);
     expect(ambManager.handleSelection.mock.calls[0]).toEqual([
       'bar',
-      mockEvent
+      mockEvent,
+      undefined
     ]);
   });
 
@@ -81,11 +83,26 @@ describe('<MenuItem>', function() {
     expect(ambManager.handleSelection).toHaveBeenCalledTimes(2);
     expect(ambManager.handleSelection.mock.calls[0]).toEqual([
       'foo',
-      mockEnterEvent
+      mockEnterEvent,
+      undefined
     ]);
     expect(ambManager.handleSelection.mock.calls[1]).toEqual([
       'foo',
-      mockSpaceEvent
+      mockSpaceEvent,
+      undefined
+    ]);
+  });
+
+  it('click with focusButton prop', function() {
+    const mockEvent = { bee: 'baa' };
+    const menuItem = el(MenuItem, { focusButton: false }, 'foo');
+    const wrapper = shallow(menuItem, shallowOptions);
+    wrapper.simulate('click', mockEvent);
+    expect(ambManager.handleSelection).toHaveBeenCalledTimes(1);
+    expect(ambManager.handleSelection.mock.calls[0]).toEqual([
+      'foo',
+      mockEvent,
+      false
     ]);
   });
 });

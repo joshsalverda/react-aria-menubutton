@@ -16,7 +16,8 @@ var checkedProps = {
   children: PropTypes.node.isRequired,
   tag: PropTypes.string,
   text: PropTypes.string,
-  value: PropTypes.any
+  value: PropTypes.any,
+  focusButton: PropTypes.bool
 };
 
 var AriaMenuButtonMenuItem = function (_React$Component) {
@@ -40,7 +41,7 @@ var AriaMenuButtonMenuItem = function (_React$Component) {
     }, _this.selectItem = function (event) {
       // If there's no value, we'll send the child
       var value = typeof _this.props.value !== 'undefined' ? _this.props.value : _this.props.children;
-      _this.context.ambManager.handleSelection(value, event);
+      _this.context.ambManager.handleSelection(value, event, _this.props.focusButton);
     }, _this.registerNode = function (node) {
       _this.node = node;
     }, _temp), _possibleConstructorReturn(_this, _ret);

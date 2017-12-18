@@ -6,7 +6,8 @@ const checkedProps = {
   children: PropTypes.node.isRequired,
   tag: PropTypes.string,
   text: PropTypes.string,
-  value: PropTypes.any
+  value: PropTypes.any,
+  focusButton: PropTypes.bool
 };
 
 class AriaMenuButtonMenuItem extends React.Component {
@@ -35,7 +36,7 @@ class AriaMenuButtonMenuItem extends React.Component {
     const value = typeof this.props.value !== 'undefined'
       ? this.props.value
       : this.props.children;
-    this.context.ambManager.handleSelection(value, event);
+    this.context.ambManager.handleSelection(value, event, this.props.focusButton);
   };
 
   registerNode = node => {

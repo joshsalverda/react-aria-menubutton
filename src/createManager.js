@@ -125,8 +125,8 @@ function handleBlur() {
   }, 0);
 }
 
-function handleSelection(value, event) {
-  if (this.options.closeOnSelection) this.closeMenu({ focusButton: true });
+function handleSelection(value, event, focusButton) {
+  if (this.options.closeOnSelection) this.closeMenu({ focusButton: focusButton !== undefined ? focusButton : true });
   this.options.onSelection(value, event);
 }
 

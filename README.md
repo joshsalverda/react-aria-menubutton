@@ -349,6 +349,8 @@ All props are optional.
 
 **tag** { String }: The HTML tag for this element. Default: `'span'`.
 
+**focusButton** { Boolean }: If `true`, the widget's button will receive focus when the menu closes. Default: `true`.
+
 *Any additional props (e.g. `id`, `className`, `data-whatever`) are passed directly to the DOM element.*
 
 ### openMenu(wrapperId[, openOptions])
